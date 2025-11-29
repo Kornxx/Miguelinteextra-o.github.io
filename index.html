@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Invitación Especial - Rainbow Six Siege</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        
+        body {
+            background: linear-gradient(135deg, #0c0c0c, #1a1a2e, #16213e);
+            color: #fff;
+            min-height: 100vh;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow-x: hidden;
+        }
+        
+        .container {
+            max-width: 900px;
+            width: 90%;
+            background: rgba(10, 10, 20, 0.8);
+            border-radius: 20px;
+            overflow: hidden;
+            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+            position: relative;
+            border: 1px solid rgba(255, 255, 255, 0.1);
+        }
+        
+        .header {
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            padding: 30px 20px;
+            text-align: center;
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .header::before {
+            content: "";
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.1)"/></svg>');
+            background-size: cover;
+        }
+        
+        h1 {
+            font-size: 2.8rem;
+            margin-bottom: 10px;
+            text-transform: uppercase;
+            letter-spacing: 3px;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+            position: relative;
+        }
+        
+        .subtitle {
+            font-size: 1.2rem;
+            opacity: 0.9;
+            position: relative;
+        }
+        
+        .content {
+            padding: 40px;
+            position: relative;
+        }
+        
+        .invitation-text {
+            font-size: 1.3rem;
+            line-height: 1.6;
+            margin-bottom: 30px;
+            text-align: center;
+            background: rgba(255, 255, 255, 0.05);
+            padding: 25px;
+            border-radius: 15px;
+            border-left: 4px solid #ff8a00;
+        }
+        
+        .highlight {
+            color: #ff8a00;
+            font-weight: bold;
+        }
+        
+        .details {
+            display: flex;
+            justify-content: space-between;
+            flex-wrap: wrap;
+            gap: 20px;
+            margin-bottom: 40px;
+        }
+        
+        .detail-card {
+            flex: 1;
+            min-width: 200px;
+            background: rgba(30, 30, 46, 0.7);
+            padding: 20px;
+            border-radius: 12px;
+            text-align: center;
+            border-top: 3px solid #e52e71;
+            transition: transform 0.3s ease;
+        }
+        
+        .detail-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .detail-card h3 {
+            color: #ff8a00;
+            margin-bottom: 10px;
+            font-size: 1.2rem;
+        }
+        
+        .cta-button {
+            display: block;
+            width: 250px;
+            margin: 0 auto;
+            padding: 15px 30px;
+            background: linear-gradient(90deg, #ff8a00, #e52e71);
+            color: white;
+            text-align: center;
+            text-decoration: none;
+            border-radius: 50px;
+            font-size: 1.2rem;
+            font-weight: bold;
+            letter-spacing: 1px;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 15px rgba(229, 46, 113, 0.4);
+            position: relative;
+            overflow: hidden;
+        }
+        
+        .cta-button:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 20px rgba(229, 46, 113, 0.6);
+        }
+        
+        .cta-button:active {
+            transform: translateY(1px);
+        }
+        
+        .footer {
+            text-align: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.3);
+            margin-top: 30px;
+            font-size: 0.9rem;
+            color: rgba(255, 255, 255, 0.6);
+        }
+        
+        .r6-icon {
+            display: inline-block;
+            width: 60px;
+            height: 60px;
+            background: linear-gradient(135deg, #ff8a00, #e52e71);
+            border-radius: 50%;
+            margin: 20px auto;
+            position: relative;
+            box-shadow: 0 0 20px rgba(255, 138, 0, 0.5);
+        }
+        
+        .r6-icon::before, .r6-icon::after {
+            content: "";
+            position: absolute;
+            background: white;
+            border-radius: 2px;
+        }
+        
+        .r6-icon::before {
+            width: 30px;
+            height: 8px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .r6-icon::after {
+            width: 8px;
+            height: 30px;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+        
+        .decoration {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            background: radial-gradient(circle, rgba(255,138,0,0.2) 0%, rgba(229,46,113,0) 70%);
+            z-index: -1;
+        }
+        
+        .decoration:nth-child(1) {
+            top: -100px;
+            left: -100px;
+        }
+        
+        .decoration:nth-child(2) {
+            bottom: -100px;
+            right: -100px;
+        }
+        
+        @media (max-width: 768px) {
+            h1 {
+                font-size: 2rem;
+            }
+            
+            .invitation-text {
+                font-size: 1.1rem;
+            }
+            
+            .details {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="decoration"></div>
+    <div class="decoration"></div>
+    
+    <div class="container">
+        <div class="header">
+            <h1>Invitación Especialmente a mi bomboncito homosexual</h1>
+            <p class="subtitle">PORFAVOR METETE WE, TE EXTRAÑO UN CHINGO, NO ME DEJES, YO TE AMO, AUNQUE TU YA NO ME QUIERAS, TE VOLVERE A ENAMORAR LAS VECES Q TU QUIERAS</p>
+        </div>
+        
+        <div class="content">
+            <div class="r6-icon"></div>
+            
+            <div class="invitation-text">
+                <p>Querido <span class="highlight">Miguel</span>,</p>
+                <p>Te invito cordialmente a unirte a una emocionante sesión de <span class="highlight">Rainbow Six Siege</span>.</p>
+                <p>Prepárate el culito para el combate táctico, estrategia en equipo y momentos épicos que solo R6 puede ofrecer.</p>
+            </div>
+            
+            <div class="details">
+                <div class="detail-card">
+                    <h3>Fecha</h3>
+                    <p>Sábado, 28 de noviembre</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>Hora</h3>
+                    <p>a las 21:00</p>
+                </div>
+                
+                <div class="detail-card">
+                    <h3>Plataforma</h3>
+                    <p>PC</p>
+                </div>
+            </div>
+            
+            <a href="#" class="cta-button">Confirmar Asistencia</a>
+            
+            <div class="footer">
+                <p>¡No faltes! La victoria del equipo depende de tu presencia precioso.</p>
+                <p>Atentamente, Tu cuchurumi :3 </p>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Efecto de partículas decorativas
+        document.addEventListener('DOMContentLoaded', function() {
+            const container = document.querySelector('.container');
+            const colors = ['#ff8a00', '#e52e71', '#4a00e0', '#8e2de2'];
+            
+            for (let i = 0; i < 15; i++) {
+                const particle = document.createElement('div');
+                particle.style.position = 'absolute';
+                particle.style.width = Math.random() * 6 + 2 + 'px';
+                particle.style.height = particle.style.width;
+                particle.style.background = colors[Math.floor(Math.random() * colors.length)];
+                particle.style.borderRadius = '50%';
+                particle.style.left = Math.random() * 100 + '%';
+                particle.style.top = Math.random() * 100 + '%';
+                particle.style.opacity = Math.random() * 0.5 + 0.2;
+                particle.style.zIndex = '-1';
+                container.appendChild(particle);
+                
+                // Animación de partículas
+                animateParticle(particle);
+            }
+            
+            function animateParticle(element) {
+                let x = parseFloat(element.style.left);
+                let y = parseFloat(element.style.top);
+                let xSpeed = (Math.random() - 0.5) * 0.2;
+                let ySpeed = (Math.random() - 0.5) * 0.2;
+                
+                function move() {
+                    x += xSpeed;
+                    y += ySpeed;
+                    
+                    if (x < 0 || x > 100) xSpeed *= -1;
+                    if (y < 0 || y > 100) ySpeed *= -1;
+                    
+                    element.style.left = x + '%';
+                    element.style.top = y + '%';
+                    
+                    requestAnimationFrame(move);
+                }
+                
+                move();
+            }
+            
+            // Efecto de brillo en el botón
+            const button = document.querySelector('.cta-button');
+            button.addEventListener('mouseenter', function() {
+                this.style.background = 'linear-gradient(90deg, #e52e71, #ff8a00)';
+            });
+            
+            button.addEventListener('mouseleave', function() {
+                this.style.background = 'linear-gradient(90deg, #ff8a00, #e52e71)';
+            });
+        });
+    </script>
+</body>
+</html>
